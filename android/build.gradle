@@ -5,7 +5,7 @@ buildscript {
     ext.kotlin_version = '2.0.0'
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
@@ -17,7 +17,7 @@ buildscript {
 rootProject.allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 
@@ -25,15 +25,14 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace 'org.sigrok.flutter_libserialport'
-    compileSdk 34
+    namespace = 'org.sigrok.flutter_libserialport'
+    compileSdk = 34
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
     defaultConfig {
-        minSdkVersion 21
-        namespace 'org.sigrok.flutter_libserialport'
+        minSdk = 21
 
         // Support for 16KB page size alignment
         externalNativeBuild {
@@ -46,7 +45,7 @@ android {
             }
         }
     }
-    lintOptions {
+    lint {
         disable 'InvalidPackage'
     }
     externalNativeBuild {
